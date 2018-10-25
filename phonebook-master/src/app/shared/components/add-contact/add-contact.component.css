@@ -1,0 +1,13 @@
+.custom-class .mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary{
+    background-color: #ffd740;
+} 
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 500px !important;
+  }
+  
+.form-container > * {
+    width: 100%;
+}

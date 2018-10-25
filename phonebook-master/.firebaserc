@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "contatc-book",
+    "prod": "contact-book-1b062"
+  }
+}
