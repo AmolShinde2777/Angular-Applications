@@ -9,22 +9,22 @@
         <thead>
           <tr>
             <th style="display:none">No</th>
-            <th (click)="sort('title')">Title
+            <th (click)="sort('Title')">Title
                 <i class="fa fa-fw fa-sort"></i>
             </th>
-            <th (click)="sort('year')">Year
+            <th (click)="sort('Year')">Year
                 <i class="fa fa-fw fa-sort"></i>
             </th>
-            <th (click)="sort('boxoffice')">BoxOffice
+            <th (click)="sort('BoxOffice')">BoxOffice
                 <i class="fa fa-fw fa-sort"></i>
             </th>
-            <th (click)="sort('imdbrating')">imdbRating
+            <th (click)="sort('imdbRating')">imdbRating
                 <i class="fa fa-fw fa-sort"></i>
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let movie of movieList | orderBy: key : reverse | filter:searchfilter | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+          <tr *ngFor="let movie of movieList | orderBy : order : reverse : 'case-insensitive' | filter:searchfilter | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
             <td style="display:none">{{i}}</td>
             <td>{{movie.Title}}</td>
             <td>{{movie.Year}}</td>

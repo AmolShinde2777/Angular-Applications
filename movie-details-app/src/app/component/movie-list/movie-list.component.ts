@@ -11,7 +11,7 @@ export class MovieListComponent implements OnInit {
   title = 'Movie List';
   searchfilter: any;
   movieList: String[];
-  key: any = 'title';
+  order: string = 'title';
   reverse: boolean = false;
   p: number = 1;
   constructor(private movieService: MovieDetailsService) { }
@@ -22,8 +22,11 @@ export class MovieListComponent implements OnInit {
       console.log(err.message);
     });
   }
-  sort(key: any) {
-    this.key = key;
-    this.reverse = !this.reverse;
+ 
+  sort(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+    this.order = value;
   }
 }
