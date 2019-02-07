@@ -1,0 +1,13 @@
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 8px 16px;
+  float: left;
+  width: 13%;
+}
+
+.mat-button{
+    color: black;
+    font-size: 17px !important;
+}

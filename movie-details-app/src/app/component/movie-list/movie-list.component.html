@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="container">
+    <div class="row">
+        <div class="form-group pull-right">
+            <input type="text" class="search form-control" type="text" name="search" [(ngModel)]="searchfilter" placeholder="Search">
+        </div>
+      <table *ngIf="movieList" class="table table-striped table-bordered table-sm">
+        <!-- ADD HEADERS -->
+        <thead>
+          <tr>
+            <th style="display:none">No</th>
+            <th (click)="sort('Title')">Title
+                <i class="fa fa-fw fa-sort"></i>
+            </th>
+            <th (click)="sort('Year')">Year
+                <i class="fa fa-fw fa-sort"></i>
+            </th>
+            <th (click)="sort('BoxOffice')">BoxOffice
+                <i class="fa fa-fw fa-sort"></i>
+            </th>
+            <th (click)="sort('imdbRating')">imdbRating
+                <i class="fa fa-fw fa-sort"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movie of movieList | orderBy : order : reverse : 'case-insensitive' | filter:searchfilter | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+            <td style="display:none">{{i}}</td>
+            <td>{{movie.Title}}</td>
+            <td>{{movie.Year}}</td>
+            <td>{{movie.BoxOffice}}</td>
+            <td>{{movie.imdbRating}}</td>
+          </tr>
+        </tbody>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </table>
+    </div>
+  </div>
+</div>
