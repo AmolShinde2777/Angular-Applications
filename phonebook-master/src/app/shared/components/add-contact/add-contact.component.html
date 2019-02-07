@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Add Contact</h1>
+<form class="form-container" name="contactForm" [formGroup]="contactForm">
+  <mat-form-field [hidden]=true>
+    <input [formControl]="idControl" [hidden]=true matInput #id placeholder="ID" >
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput #firstName placeholder="First Name"  required
+      [formControl]="firstnameFormControl">
+    <mat-error *ngIf="firstnameFormControl.invalid">{{getRequiredErrorMessage('firstname')}}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput #lastName placeholder="Last Name"  required
+      [formControl]="lastnameFormControl">
+    <mat-error *ngIf="lastnameFormControl.invalid">{{getRequiredErrorMessage('lastname')}}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput #email placeholder="Email"  required [formControl]="emailFormControl">
+    <div class="error" *ngIf="email.invalid && email.errors.required && (email.dirty || email.touched)">Please enter an email</div>
+    <mat-error *ngIf="emailFormControl.invalid">{{getEmailErrorMessage()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput #phoneNumber placeholder="Phone Number" required
+      [formControl]="phoneFormControl">
+    <mat-error *ngIf="phoneFormControl.invalid">{{getPhoneErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+  <mat-slide-toggle  [formControl]="statusControl" style="margin-top: 10px" #status>Status</mat-slide-toggle>
+
+  <button style="margin-top: 10px" class="custom-class" mat-raised-button color="primary" class="submit-button"
+    [disabled]="contactForm.status !== 'VALID'" (click)="dialogRef.close({
+    firstName: firstName.value,
+    lastName: lastName.value,
+    email: email.value,
+    phoneNumber: phoneNumber.value,
+    status: status.checked,
+    id : id.value
+  })">Save
+  </button>
+  <button style="margin-top: 10px;" mat-raised-button (click)="dialogRef.close()">Cancel</button>
+</form>

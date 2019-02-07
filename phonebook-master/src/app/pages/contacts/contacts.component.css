@@ -1,0 +1,12 @@
+button[mat-fab] {
+  position: fixed;
+  right: 250px ;
+  bottom: 200px;
+}
+
+
+table, tr, td, th {
+  border: none;
+}
+
+

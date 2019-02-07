@@ -1,0 +1,24 @@
+<!-- <mat-card *ngFor="let contact of contacts">
+  <h5>{{ contact.firstName }}</h5>
+</mat-card> -->
+
+<div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email Id</th>
+          <th>Phone Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let x of contacts">
+          <td>{{x.firstName}}</td>
+          <td>{{x.lastName}}</td>
+          <td>{{x.email}}</td>
+          <td>{{x.phoneNumber}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
