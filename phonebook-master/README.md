@@ -11,4 +11,6 @@
 
 6. Open browser[Except IE]
 7. Type URL: http://localhost:4200
+
+8. Deployed on firebase server : https://contact-book-1b062.firebaseapp.com/contacts
  
